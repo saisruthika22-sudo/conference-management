@@ -1,7 +1,6 @@
 {
   "name": "copy-of-confai-manager",
   "private": true,
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
