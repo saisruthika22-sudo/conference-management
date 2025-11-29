@@ -1,4 +1,5 @@
 import { GoogleGenAI } from "@google/genai";
+import { Paper, ConferenceSession } from '../types';
 
 const getAiClient = () => {
   const apiKey = process.env.API_KEY;
@@ -109,13 +110,13 @@ export interface ScheduleAnalysis {
   suggestions: string[];
 }
 
-export const analyzeConferenceSchedule = async (sessions: any[], papers: any[]): Promise<ScheduleAnalysis | null> => {
+export const analyzeConferenceSchedule = async (sessions: ConferenceSession[], papers: Paper[]): Promise<ScheduleAnalysis | null> => {
   const ai = getAiClient();
   if (!ai) return null;
 
   // Prepare data context
   const scheduleContext = sessions.map(s => {
-    const sessionPapers = s.paperIds.map((pid: string) => papers.find((p: any) => p.id === pid)?.title || 'Unknown').join('; ');
+    const sessionPapers = s.paperIds.map((pid) => papers.find((p) => p.id === pid)?.title || 'Unknown').join('; ');
     return `Session: ${s.title}, Time: ${s.startTime}-${s.endTime}, Room: ${s.room}, Papers: [${sessionPapers}]`;
   }).join('\n');
 
