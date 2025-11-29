@@ -18,5 +18,11 @@ export default defineConfig(({ mode }) => {
         '@': path.resolve(__dirname, '.'),
       }
     }
+        },
+    preview: {
+      allowedHosts: [
+        'conference-management-sted.onrender.com'
+      ]
+        }
   };
 });
