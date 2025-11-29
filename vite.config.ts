@@ -16,13 +16,10 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
-      }
-    }
-        },
+      },
+    },
     preview: {
-      allowedHosts: [
-        'conference-management-sted.onrender.com'
-      ]
-        }
+      allowedHosts: ['conference-management-sted.onrender.com'],
+    },
   };
 });
